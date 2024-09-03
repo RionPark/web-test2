@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	function valid(){ 
+		const genders = document.querySelectorAll('input[name=gender]:checked');
+		alert(genders.length);
+	}
+</script>
+남<input type="radio" id="tt1" name="gender" value="1">
+여<input type="radio" id="tt2" name="gender" value="2">
+<button onclick="valid()">확인</button>
+</body>
+</html>
