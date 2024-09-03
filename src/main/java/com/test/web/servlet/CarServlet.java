@@ -1,6 +1,7 @@
 package com.test.web.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -35,8 +36,28 @@ public class CarServlet extends HttpServlet{
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*
-		 * insert, update, delete
+		 *  car-insert, car-update, car-delete
 		 */
+		request.setCharacterEncoding("UTF-8");
+		String uri = request.getRequestURI();
+		String cmd = CmdUtil.getCmd(uri);
+		CarVO car = new CarVO();
+		car.setCiName(request.getParameter("ciName"));
+		car.setCiYear(request.getParameter("ciYear"));
+		if("car-insert".equals(cmd)) {
+			int result = cs.insertCar(car);
+			String msg = "차량등록이 실패하였습니다.";
+			String url = "/views/car/car-insert";
+			if(result == 1) {
+				msg = "차량등록이 성공하였습니다.";
+				url = "/car/car-list";
+			}
+			request.setAttribute("msg", msg);
+			request.setAttribute("url", url);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+			rd.forward(request, response);
+			return;
+		}
 	}
 
 }

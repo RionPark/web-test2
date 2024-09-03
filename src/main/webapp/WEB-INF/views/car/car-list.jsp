@@ -28,5 +28,6 @@ for(CarVO car : cars){
 }
 %>
 </table>
+<a href="/views/car/car-insert">차량등록</a>
 </body>
 </html>
