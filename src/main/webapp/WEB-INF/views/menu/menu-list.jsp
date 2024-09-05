@@ -21,7 +21,7 @@ for(MenuVO menu : menus){
 %>
 	<tr>
 		<td><%=menu.getMiNum() %></td>
-		<td><%=menu.getMiName() %></td>
+		<td><a href="/menu/menu-view?miNum=<%=menu.getMiNum()%>"><%=menu.getMiName()%></a></td>
 		<td><%=menu.getMiPrice()%></td>
 	</tr>
 <%

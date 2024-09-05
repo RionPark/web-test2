@@ -11,11 +11,11 @@ import com.test.web.common.DBCon;
 import com.test.web.vo.MenuVO;
 
 public class MenuRepository {
-
+	
 	public List<MenuVO> selectMenus(){
 		List<MenuVO> menus = new ArrayList<>();
 		try(Connection con = DBCon.getCon()){
-			String sql = "SELECT MI_NUM, MI_NAME, MI_PRICE, MI_DESC\r\n"
+			String sql = "SELECT MI_NUM, MI_NAME, MI_PRICE, MI_DESC, MI_PATH\r\n"
 					+ "FROM menu_info";
 			try(PreparedStatement ps = con.prepareStatement(sql)){
 				try(ResultSet rs = ps.executeQuery()){
@@ -25,6 +25,7 @@ public class MenuRepository {
 						menu.setMiName(rs.getString("MI_NAME"));
 						menu.setMiPrice(rs.getInt("MI_PRICE"));
 						menu.setMiDesc(rs.getString("MI_DESC"));
+						menu.setMiPath(rs.getString("MI_PATH"));
 						menus.add(menu);
 					}
 				}
@@ -39,7 +40,7 @@ public class MenuRepository {
 
 	public MenuVO selectMenu(int miNum){
 		try(Connection con = DBCon.getCon()){
-			String sql = "SELECT MI_NUM, MI_NAME, MI_PRICE, MI_DESC\r\n"
+			String sql = "SELECT MI_NUM, MI_NAME, MI_PRICE, MI_DESC, MI_PATH\r\n"
 					+ "FROM menu_info WHERE MI_NUM=?";
 			try(PreparedStatement ps = con.prepareStatement(sql)){
 				ps.setInt(1, miNum);
@@ -50,6 +51,7 @@ public class MenuRepository {
 						menu.setMiName(rs.getString("MI_NAME"));
 						menu.setMiPrice(rs.getInt("MI_PRICE"));
 						menu.setMiDesc(rs.getString("MI_DESC"));
+						menu.setMiPath(rs.getString("MI_PATH"));
 						return menu;
 					}
 				}

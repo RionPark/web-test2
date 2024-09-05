@@ -39,6 +39,14 @@ public class MenuServlet extends HttpServlet {
 			request.setAttribute("menus", menus);
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views" + uri + ".jsp");
 			rd.forward(request, response);
+		}else if("menu-view".equals(cmd)) {
+			String miNumStr = request.getParameter("miNum");
+			int miNum = Integer.parseInt(miNumStr);
+			MenuVO menu = ms.selectMenu(miNum);
+			request.setAttribute("menu", menu);
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views" + uri + ".jsp");
+			rd.forward(request, response);
+			return;
 		}
 	}
 
