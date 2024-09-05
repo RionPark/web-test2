@@ -62,12 +62,13 @@ public class MenuRepository {
 	
 	public int insertMenu(MenuVO menu) {
 		try(Connection con = DBCon.getCon()){
-			String sql = "INSERT INTO menu_info(MI_NAME, MI_PRICE, MI_DESC)\r\n"
-					+ "VALUES(?,?,?)";
+			String sql = "INSERT INTO menu_info(MI_NAME, MI_PRICE, MI_DESC, MI_PATH)\r\n"
+					+ "VALUES(?,?,?,?)";
 			try(PreparedStatement ps = con.prepareStatement(sql)){
 				ps.setString(1,menu.getMiName());
 				ps.setInt(2, menu.getMiPrice());
 				ps.setString(3, menu.getMiDesc());
+				ps.setString(4, menu.getMiPath());
 				return ps.executeUpdate();
 			}
 		}catch(SQLException e) {

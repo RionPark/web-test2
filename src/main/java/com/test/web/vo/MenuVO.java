@@ -6,6 +6,14 @@ public class MenuVO {
 	private String miName;
 	private int miPrice;
 	private String miDesc;
+	private String miPath;
+	
+	public String getMiPath() {
+		return miPath;
+	}
+	public void setMiPath(String miPath) {
+		this.miPath = miPath;
+	}
 	public int getMiNum() {
 		return miNum;
 	}
@@ -32,7 +40,8 @@ public class MenuVO {
 	}
 	@Override
 	public String toString() {
-		return "MenuVO [miNum=" + miNum + ", miName=" + miName + ", miPrice=" + miPrice + ", miDesc=" + miDesc + "]";
+		return "MenuVO [miNum=" + miNum + ", miName=" + miName + ", miPrice=" + miPrice + ", miDesc=" + miDesc
+				+ ", miPath=" + miPath + "]";
 	}
 	
 	
