@@ -89,7 +89,18 @@ public class MenuServlet extends HttpServlet {
 				menu.setMiPrice(Integer.parseInt(param.get("miPrice")));
 				menu.setMiDesc(param.get("miDesc"));
 				menu.setMiPath(param.get("miImg"));
-				ms.insertMenu(menu);
+				int result = ms.insertMenu(menu);
+				String msg = "메뉴등록이 실패하였습니다.";
+				String url = "/views/menu/menu-insert";
+				if(result == 1) {
+					msg = "메뉴등록이 성공하였습니다.";
+					url = "/menu/menu-list";
+				}
+				request.setAttribute("msg", msg);
+				request.setAttribute("url", url);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+				rd.forward(request, response);
+				return;
 			} catch (FileUploadException e) {
 				e.printStackTrace();
 			}
