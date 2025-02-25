@@ -1,0 +1,11 @@
+[순서]
+ 1. mybatis-confg.xml 생성
+   - mapUnderscoreToCamelCase 셋팅을 true로 해줌
+   - driver name, url, username, password를 셋팅해줌
+ 2. FOOD_INFO테이블에 대한 TDO생성
+   - FoodInfoDTO 생성
+ 3. insert, update, delete, select를 mapper에 작성
+ 4. 작성한 mapper를 1번에 있는 mybatis-config.xml에 등록
+ 5. mybatis-config.xml를 읽어서 SqlSessionFactory생성
+ 6. insert, update, delete, select를 수행할 Repository 생성
+ 7. 6번에서 생성한 Repository를 실행할 Service생성
