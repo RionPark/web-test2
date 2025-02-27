@@ -25,13 +25,4 @@ public class FoodInfoService {
 		return fiRepo.deleteFoodInfo(fiNum);
 	}
 	
-	public static void main(String[] args) {
-		FoodInfoService fiService = new FoodInfoService();
-		List<FoodInfoDTO> foodInfos = fiService.getFoodInfos(null);
-		for(FoodInfoDTO foodInfo : foodInfos) {
-			System.out.println(foodInfo);
-		}
-		FoodInfoDTO foodInfo = fiService.getFoodInfo(2);
-		System.out.println(foodInfo);
-	}
 }

@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>HTML수업</title>
 </head>
 <body>
-안녕 난 웹페이지라고 해.
+<h3>메뉴</h3>
+<ul>
+	<li><a href="/foods">음식리스트</a></li>
+	<li><a href="/users">유저리스트</a></li>
+	<li><a href="/games">게임리스트</a></li>
+</ul>
 </body>
 </html>
