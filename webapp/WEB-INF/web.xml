@@ -4,14 +4,12 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
-  	<servlet-name>foodInfoServlet</servlet-name>
+  	<servlet-name>FoodInfoServlet</servlet-name>
   	<servlet-class>com.web.controller.FoodInfoServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>foodInfoServlet</servlet-name>
+  	<servlet-name>FoodInfoServlet</servlet-name>
   	<url-pattern>/foods</url-pattern>
   </servlet-mapping>
 </web-app>

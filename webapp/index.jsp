@@ -13,5 +13,15 @@
 	<li><a href="/users">유저리스트</a></li>
 	<li><a href="/games">게임리스트</a></li>
 </ul>
+<%
+if(session.getAttribute("uiName")!=null){
+	String uiName = (String)session.getAttribute("uiName");
+	out.println(uiName + "님 반갑습니다.");
+}else{
+%>
+	<a href="/jsp/login.jsp">로그인</a>
+<%
+}
+%>
 </body>
 </html>
